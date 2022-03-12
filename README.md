@@ -1,2 +1,2 @@
 # bartender
-Little android app that makes you the coolest cat at the bar 
+Little (WIP) Android app that makes you the coolest cat at the bar 

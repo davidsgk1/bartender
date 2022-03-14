@@ -6,6 +6,9 @@ import com.keegandavidson.bartender.data.SearchRepository
 import com.keegandavidson.bartender.data.SearchRepositoryImpl
 import com.keegandavidson.bartender.ui.MainContract
 import com.keegandavidson.bartender.ui.MainPresenter
+import com.keegandavidson.bartender.ui.search.SearchContract
+import com.keegandavidson.bartender.ui.search.SearchPresenter
+import com.keegandavidson.bartender.ui.search.domain.SearchResultMapper
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -13,7 +16,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetworkModule {
+class MainModule {
 
     @Provides
     @Singleton
@@ -40,7 +43,17 @@ class NetworkModule {
     }
 
     @Provides
+    fun provideSearchResultsMapper(): SearchResultMapper {
+        return SearchResultMapper()
+    }
+
+    @Provides
     fun provideMainContractPresenter(searchRepository: SearchRepository): MainContract.Presenter {
         return MainPresenter(searchRepository)
+    }
+
+    @Provides
+    fun provideSearchContractPresenter(searchRepository: SearchRepository, searchResultsMapper: SearchResultMapper): SearchContract.Presenter {
+        return SearchPresenter(searchRepository, searchResultsMapper)
     }
 }

@@ -5,7 +5,12 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class SearchClient @Inject constructor(private val searchApi: SearchApi) {
+
     suspend fun getRandomDrink(): Response<DrinksList?> {
         return searchApi.getRandomDrink()
+    }
+
+    suspend fun searchDrinkByName(name: String): Response<DrinksList?> {
+        return searchApi.searchDrinkByName(name)
     }
 }

@@ -25,8 +25,4 @@ class MainPresenter @Inject constructor(private val searchRepository: SearchRepo
             }
         }
     }
-
-    private suspend fun doLaunch(doOn: () -> Unit) {
-        CoroutineScope(Dispatchers.IO).launch { doOn() }
-    }
 }

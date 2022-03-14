@@ -7,15 +7,28 @@
     tools:context=".ui.MainActivity">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/drink_button"
+        android:id="@+id/drink_search_button"
         android:layout_width="0dp"
         android:layout_height="64dp"
-        android:text="Get Drink"
+        android:text="Search Drinks By Name"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="52dp"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/drink_random_button"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:text="Get Random Drink"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/drink_search_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -27,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/drink_label"
-        app:layout_constraintTop_toBottomOf="@id/drink_button" />
+        app:layout_constraintTop_toBottomOf="@id/drink_random_button" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/drink_label"

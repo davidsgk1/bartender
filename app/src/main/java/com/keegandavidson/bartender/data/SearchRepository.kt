@@ -6,4 +6,6 @@ import retrofit2.Response
 interface SearchRepository {
 
     suspend fun getRandomDrink(): Response<DrinksList?>
+
+    suspend fun searchDrinkByName(name: String): Response<DrinksList?>
 }

@@ -9,4 +9,8 @@ class SearchRepositoryImpl @Inject constructor(private val searchClient: SearchC
     override suspend fun getRandomDrink(): Response<DrinksList?> {
         return searchClient.getRandomDrink()
     }
+
+    override suspend fun searchDrinkByName(name: String): Response<DrinksList?> {
+        return searchClient.searchDrinkByName(name)
+    }
 }

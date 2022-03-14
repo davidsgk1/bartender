@@ -5,6 +5,8 @@ import com.hannesdorfmann.mosby3.mvp.MvpActivity
 import com.keegandavidson.bartender.databinding.ActivityMainBinding
 import com.keegandavidson.bartender.model.Drink
 import com.keegandavidson.bartender.util.di.injectDependencies
+import com.keegandavidson.bartender.util.ui.DeepLinkTag
+import com.keegandavidson.bartender.util.ui.InternalDeepLink
 import com.keegandavidson.bartender.util.ui.loadRemoteImage
 import javax.inject.Inject
 
@@ -33,7 +35,8 @@ class MainActivity : MvpActivity<MainContract.View, MainContract.Presenter>(), M
 
     override fun createPresenter() = mainPresenter
 
-    private fun initViews() = with(binding) {
-        drinkButton.setOnClickListener { presenter.onGetRandomClicked() }
+    private fun initViews() {
+        binding.drinkSearchButton.setOnClickListener { InternalDeepLink.sendToActivity(this, DeepLinkTag.SEARCH) }
+        binding.drinkRandomButton.setOnClickListener { presenter.onGetRandomClicked() }
     }
 }
